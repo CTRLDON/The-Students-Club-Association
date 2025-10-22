@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Student Association Club (SCA)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .hack-title {
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        .hack-button {
+            transition: all 0.2s ease-in-out;
+        }
+        .hack-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+        .nav-link.active {
+            color: #ec4899; /* Pink-500 for active link */
+        }
+        .content-section {
+            display: none; /* Hide all sections by default */
+        }
+        .content-section.active {
+            display: block; /* Show active section */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- MODIFIED: Logo added -->
+            <a href="#home" class="nav-link active" data-target="home">
+                <!-- USER: Replace 'logo.jpq' with your actual logo file path -->
+                <img src="logo.jpg" 
+                     alt="SCA Logo" 
+                     class="h-8 w-auto"
+                     onerror="this.src='https://placehold.co/100x40/000000/FFFFFF?text=SCA+Logo'; this.onerror=null;">
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#benefits" class="text-gray-300 hover:text-white transition nav-link" data-target="benefits">Benefits</a>
+                <a href="#structure" class="text-gray-300 hover:text-white transition nav-link" data-target="structure">Structure</a>
+                <!-- ADDED: New Nav Link -->
+                <a href="#first-club" class="text-gray-300 hover:text-white transition nav-link" data-target="first-club">First Club</a>
+            </div>
+            <a href="#join" data-target="join" class="hack-button nav-link bg-pink-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg hover:bg-pink-700">
+                Join Now
+            </a>
+        </nav>
+         <!-- Mobile Nav Toggle -->
+        <div class="md:hidden flex justify-end px-6 pb-4">
+             <button id="mobile-menu-button" class="text-white">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col items-center space-y-4">
+            <a href="#benefits" class="text-gray-300 hover:text-white transition nav-link w-full text-center py-2" data-target="benefits">Benefits</a>
+            <a href="#structure" class="text-gray-300 hover:text-white transition nav-link w-full text-center py-2" data-target="structure">Structure</a>
+            <!-- ADDED: New Mobile Nav Link -->
+            <a href="#first-club" class="text-gray-300 hover:text-white transition nav-link w-full text-center py-2" data-target="first-club">First Club</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- Home Section -->
+        <section id="home" class="content-section active">
+            <div class="container mx-auto px-6 py-16 text-center">
+                <h1 class="text-5xl md:text-8xl hack-title leading-tight">Don't Just Join a Club. <br class="hidden md:block"/><span class="text-pink-500">Build a Legacy.</span></h1>
+                <p class="text-lg md:text-xl text-gray-300 mt-6 max-w-3xl mx-auto">SCA is the global network, toolkit, and council for student leaders. We give you everything you need to build, run, and grow a successful club.</p>
+                <a href="#join" data-target="join" class="nav-link hack-button mt-10 inline-block bg-white text-black font-bold py-4 px-10 rounded-lg shadow-xl hover:bg-gray-200">
+                    Start Building Now
+                </a>
+            </div>
+
+            <div class="container mx-auto px-6 py-20">
+                <h2 class="text-4xl md:text-5xl hack-title text-center mb-12">We're Your Club's Co-Founder.</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold text-pink-500 mb-3">Community First</h3>
+                        <p class="text-gray-400">We build the global community of ambitious student leaders. You build your campus team.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold text-pink-500 mb-3">Powerful Tools</h3>
+                        <p class="text-gray-400">You get the playbook, the templates, and the software to run your club like a pro. For free.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold text-pink-500 mb-3">Expert Council</h3>
+                        <p class="text-gray-400">Access a council of past leaders who have been there. Never build alone or repeat mistakes.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800">
+                        <h3 class="text-2xl font-bold text-pink-500 mb-3">Marketing Machine</h3>
+                        <p class="text-gray-400">Marketing is our job. The club is yours. We promote you, so you can focus on making an impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-xl font-bold uppercase text-gray-400 tracking-widest mb-4">Our Vision</h2>
+                    <p class="text-3xl md:text-5xl font-bold max-w-4xl mx-auto leading-tight">"To be the #1 go-to for any ambitious student who wants to create, connect and initiate a club."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="content-section">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl hack-title">A Toolkit for <span class="text-pink-500">World-Class Leaders.</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mt-6">When you start a club with SCA, you don't just get a name. You get an arsenal.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-16">
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform">
+                        <h3 class="text-3xl font-bold mb-4">The Marketing Machine</h3>
+                        <p class="text-gray-400">Stop begging for members. We provide professional branding assets, feature your club on our global platform, and give you a marketing playbook that actually works.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform">
+                        <h3 class="text-3xl font-bold mb-4">The Leadership Council</h3>
+                        <p class="text-gray-400">Got a problem? Need advice on funding? Our council of experienced, successful student leaders is your personal advisory board, ready to help.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform">
+                        <h3 class="text-3xl font-bold mb-4">The Digital Toolbox</h3>
+                        <p class="text-gray-400">Get access to our curated list of software and templates for managing your members, planning your budget, and running your meetings efficiently.</p>
+                    </div>
+                    <div class="bg-gray-900 p-8 rounded-xl border border-gray-800 transform hover:scale-105 transition-transform">
+                        <h3 class="text-3xl font-bold mb-4">The Global Network</h3>
+                        <p class="text-gray-400">Join a private community with thousands of student leaders from around the world. Collaborate on projects, share ideas, and find global opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Structure Section -->
+        <section id="structure" class="content-section">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl hack-title">From Your School to <span class="text-pink-500">the Whole World.</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mt-6">Our model is designed to empower leaders at every level. Here’s the blueprint.</p>
+                </div>
+
+                <div class="mt-20 flex flex-col items-center space-y-8">
+                    <!-- Level 1 -->
+                    <div class="w-full max-w-2xl bg-gray-900 p-8 rounded-xl border-2 border-pink-500 text-center shadow-2xl">
+                        <span class="text-sm font-bold uppercase text-pink-500 tracking-widest">Level 1: The Global Council</span>
+                        <h3 class="text-3xl font-bold mt-2">The Student Club Association (SCA)</h3>
+                        <p class="text-gray-400 mt-4">This is the head. SCA provides the global vision, the core funding, the technology, and the brand. We support the leaders of the Associations.</p>
+                    </div>
+                    <div class="text-3xl text-gray-600 font-thin">↓</div>
+                    <!-- Level 2 -->
+                    <div class="w-full max-w-2xl bg-gray-900 p-8 rounded-xl border border-gray-800 text-center">
+                        <span class="text-sm font-bold uppercase text-gray-400 tracking-widest">Level 2: The Campus Leaders</span>
+                        <h3 class="text-3xl font-bold mt-2">School Student Association (SSA)</h3>
+                        <p class="text-gray-400 mt-4">The leadership team for a specific school or area. They are trained by SCA to be the on-the-ground support system, managing and mentoring all clubs under them.</p>
+                    </div>
+                    <div class="text-3xl text-gray-600 font-thin">↓</div>
+                     <!-- Level 3 -->
+                    <div class="w-full max-w-2xl bg-gray-900 p-8 rounded-xl border border-gray-800 text-center">
+                        <span class="text-sm font-bold uppercase text-gray-400 tracking-widest">Level 3: The Impact-Makers (You)</span>
+                        <h3 class="text-3xl font-bold mt-2">Your Club</h3>
+                        <p class="text-gray-400 mt-4">This is your idea. Your passion. Your team. You are the reason SCA exists, getting full support from the entire network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ADDED: First Club Section -->
+        <section id="first-club" class="content-section">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl hack-title">Our <span class="text-pink-500">First Chapter.</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mt-6">Meet the pioneers who are already building the future with SCA.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center mt-20 max-w-6xl mx-auto">
+                    <!-- Text Content -->
+                    <div class="animate-fade-in">
+                        <span class="text-sm font-bold uppercase text-pink-500 tracking-widest">Flagship Feature: Egypt</span>
+                        <h2 class="text-4xl md:text-5xl font-bold hack-title mt-4">Summits Hack Club</h2>
+                        <p class="text-gray-400 mt-6 text-lg">
+                            We're proud to feature the <strong class="text-white">Summits Hack Club</strong>, the only hackclub working in Egypt. Based at <strong class="text-white">Summits International School in Cairo</strong> and led by the visionary <strong class="text-white">Osama Attia</strong>, this programming club is already making waves.
+                        </p>
+                        <p class="text-gray-400 mt-4 text-lg">
+                            They recently organized a <strong class="text-white">racing competition with student-built RC cars</strong>—the first of its kind in the country, blending code, engineering, and competition.
+                        </p>
+                        <!-- USER: Replace '#' with your Instagram URL -->
+                        <a href="https://www.instagram.com/hackclubatsummits/" target="_blank" rel="noopener noreferrer" class="hack-button mt-10 inline-block bg-pink-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-pink-700">
+                            Visit Their Instagram
+                        </a>
+                    </div>
+                
+                    <!-- Image Gallery -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-lg overflow-hidden shadow-xl">
+                            
+                            <!-- USER: Replace '#' with your image file path -->
+                            <img src="hackclub.jpg" alt="RC Car Racing" class="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/111827/FFFFFF?text=RC+Car+Racing'; this.onerror=null;">
+                        </div>
+                         <div class="rounded-lg overflow-hidden shadow-xl">
+                            
+                            <!-- USER: Replace '#' with your image file path -->
+                            <img src="racing.jpg" alt="Students Programming" class="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/111827/FFFFFF?text=Students+Programming'; this.onerror=null;">
+                        </div>
+                         <div class="rounded-lg overflow-hidden shadow-xl col-span-2">
+                            
+                            <!-- USER: Replace '#' with your image file path -->
+                            <img src="session.jpg" alt="Summits International School" class="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-300" onerror="this.src='https://placehold.co/600x300/111827/FFFFFF?text=Summits+International+School'; this.onerror=null;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Section -->
+        <section id="join" class="content-section">
+            <div class="container mx-auto px-6 py-16">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl hack-title">Find Your <span class="text-pink-500">Starting Line.</span></h1>
+                    <p class="text-lg md:text-xl text-gray-300 mt-6">Choose the path that fits your ambition. No wrong answers.</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mt-16 max-w-6xl mx-auto">
+                    <!-- Card 1 -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 flex flex-col hover:border-pink-500 transition-all">
+                        <h3 class="text-3xl font-bold mb-3">Start a Club</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">For those with an idea, ready to build a team and make an impact at their school.</p>
+                        <a href="https://forms.gle/YSF7ajYXYpABCZLRA" target="_blank" class="hack-button mt-auto block w-full text-center bg-pink-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-pink-700">
+                            Apply to Lead a Club
+                        </a>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white text-black border-4 border-white rounded-xl p-8 flex flex-col transform lg:scale-105 shadow-2xl">
+                        <h3 class="text-3xl font-bold mb-3">Create an Association</h3>
+                        <p class="text-gray-600 mb-6 flex-grow">For the super-connectors who want to lead and support all the SCA clubs at their school or in their city.</p>
+                        <a href="#" class="hack-button mt-auto block w-full text-center bg-black text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800">
+                            Apply to Build an SSA(Coming soon)
+                        </a>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-gray-900 border border-gray-800 rounded-xl p-8 flex flex-col hover:border-pink-500 transition-all">
+                        <h3 class="text-3xl font-bold mb-3">Join the Community</h3>
+                        <p class="text-gray-400 mb-6 flex-grow">For aspiring students who want to connect, find opportunities, or join a club that already exists.</p>
+                        <a href="https://forms.gle/b3d2WBqzVjCVQGu59" target="_blank" class="hack-button mt-auto block w-full text-center bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600">
+                            Join the Network
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-20">
+        <div class="container mx-auto px-6 py-10 text-center text-gray-500">
+            <p class="text-lg font-bold text-gray-300">SCA</p>
+            <p class="mt-2">"Initiating a gateway for all students around the globe."</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="https://www.instagram.com/tsca.2025/" target="_blank" class="hover:text-white">Instagram</a>
+                <a href="https://www.linkedin.com/company/the-student-clubs-association/" target="_blank" class="hover:text-white">LinkedIn</a>
+            </div>
+            <p class="mt-6 text-sm">&copy; 2025 The Student Association Club. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function switchPage(targetId) {
+                // Hide all sections
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.target === targetId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Close mobile menu on navigation
+                mobileMenu.classList.add('hidden');
+
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.dataset.target;
+                    // If target is null/undefined (like on the logo link with no data-target), default to home
+                    switchPage(targetId || 'home');
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Ensure the logo link (which is also a nav-link) works
+            const logoLink = document.querySelector('header a.nav-link');
+            if(logoLink) {
+                logoLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    switchPage(this.dataset.target);
+                })
+            }
+        });
+    </script>
+
+</body>
+</html>
